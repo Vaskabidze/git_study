@@ -23,8 +23,13 @@ public class BaseService {
         return repository.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, reason));
     }
 
-    public List<SberIdBase> findAll(){
+    public List<SberIdBase> findAll() {
         return repository.findAll();
+    }
+
+    public void deleteById(Long id) {
+        SberIdBase sberIdBase = findById(id);
+        repository.delete(sberIdBase);
     }
 
 }

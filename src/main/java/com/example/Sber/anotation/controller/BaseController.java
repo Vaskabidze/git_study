@@ -3,6 +3,8 @@ package com.example.Sber.anotation.controller;
 import com.example.Sber.anotation.entity.SberIdBase;
 import com.example.Sber.anotation.service.BaseService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
@@ -34,5 +36,9 @@ public class BaseController {
         return baseService.findAll();
     }
 
-
+    @DeleteMapping("/{id}")
+    public ResponseEntity<String> delete(@PathVariable Long id) {
+        baseService.deleteById(id);
+        return ResponseEntity.status(HttpStatus.NO_CONTENT).body("Success");
+    }
 }
