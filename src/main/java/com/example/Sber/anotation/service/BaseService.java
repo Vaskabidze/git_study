@@ -24,6 +24,7 @@ public class BaseService {
     }
 
     public List<SberIdBase> findAll(){
+        System.out.println("Вызов сервиса поиск всех сузностей");
         return repository.findAll();
     }
 
