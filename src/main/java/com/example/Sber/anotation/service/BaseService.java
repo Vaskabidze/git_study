@@ -23,7 +23,8 @@ public class BaseService {
         return repository.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, reason));
     }
 
-    public List<SberIdBase> findAll() {
+    public List<SberIdBase> findAll(){
+        System.out.println("Вызов сервиса поиск всех сузностей");
         return repository.findAll();
     }
 
